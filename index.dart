@@ -33,6 +33,7 @@ class CustomWidget extends Widget {
                 ),
                 files: [
                     File("spawner",child: For.of(giveAllSpawner())),
+                    File("spawnegg",child: For.of(giveAllSpawnEgg())),
                     File("summonall",child: For.of(summonAllZombie())),
                     File("model",child: For.of(giveAllModel())),
                     File("removetag",child: modelRemoveTag())

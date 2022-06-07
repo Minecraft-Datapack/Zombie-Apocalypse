@@ -66,6 +66,20 @@ String getZombieModel(String zombie,int angle){
     return """give @p zombie_spawn_egg{display:{Name:'{"text":"${zombie}"}'},EntityTag:{id:"minecraft:${entity_type}",Silent:1b,Invulnerable:1b,PersistenceRequired:1b,NoAI:1b,${attribute},Rotation:[${angle}F,0F]}} 1""";
 }
 
+String getZombieSpawnEgg(String zombie){
+    String x = Zombie[zombie]["command"];
+
+    int i = 0;
+    while(x[i] != "{"){
+        i++;
+    }
+    String entity_type = x.split(' ')[1];
+    String attribute = x.substring(i+1,x.length-1);
+    
+
+    return """give @p zombie_spawn_egg{display:{Name:'{"text":"${zombie}"}'},EntityTag:{id:"minecraft:${entity_type}",PersistenceRequired:1b,${attribute}}} 1""";
+}
+
 List<String> getAllZombieName(){
     List<String> zombie = [];
     Zombie.forEach((key, value) => { zombie.add(key) });
@@ -76,6 +90,12 @@ List<Command> giveAllSpawner(){
     List<Command> all_zombie_spawner = [];
     Zombie.forEach((key, value) => { all_zombie_spawner.add(Command(getSpawner(key)))});
     return all_zombie_spawner;
+}
+
+List<Command> giveAllSpawnEgg(){
+    List<Command> allZombie = [];
+    Zombie.forEach((key, value) => { allZombie.add(Command(getZombieSpawnEgg(key))) });
+    return allZombie;
 }
 
 List<Command> giveAllModel(){
