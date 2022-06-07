@@ -2,6 +2,7 @@ import 'package:objd/core.dart';
 import './main.dart';
 import './load.dart';
 import './module/zombie.dart';
+import './module/testroom.dart';
 
 void main(List<String> args){
 	createProject(
@@ -16,6 +17,7 @@ void main(List<String> args){
 }
 
 class CustomWidget extends Widget {
+
     @override
     Widget generate(Context context){
         return For.of([
@@ -30,28 +32,21 @@ class CustomWidget extends Widget {
                     child: LoadFile()
                 ),
                 files: [
-                    File("test",child: ElementalZombie())
-                    // File("weapon",child: AllWeapon())
+                    File("spawner",child: For.of(giveAllSpawner())),
+                    File("summonall",child: For.of(summonAllZombie())),
+                    File("model",child: For.of(giveAllModel())),
+                    File("removetag",child: modelRemoveTag())
                 ],        
             ),
             Pack(
-                name:"zombie",
+                name: "zombie",
+                files: getAllZombieFile()
+            ),
+            Pack(
+                name: "testroom",
                 files: [
-                    File("elemental",child: ElementalZombie()),
-                    File("fast",child: FastZombie()),
-                    File("fire",child: FireZombie()),
-                    File("nanomite",child: Nanomite()),
-                    File("poison",child: PoisonZombie()),
-                    File("regular",child: RegularZombie()),
-                    File("shadow",child: Shadow()),
-                    File("snipe",child: SnipeZombie()),
-                    File("superfast",child: SuperFastZombie()),
-                    File("thicc",child: ThiccZombie()),
-                    File("troll",child: TrollZombie()),
-                    File("doctor",child: DoctorZombie()),
-                    File("spawner",child: Spawner()),
-                    File("summonall",child: SummonAll())
-                ],        
+                    File("gendiv",child: RoomDivider())
+                ]
             )
         ]);
     }

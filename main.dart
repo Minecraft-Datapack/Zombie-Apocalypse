@@ -10,7 +10,7 @@ class MainFile extends Widget {
             Execute.at(Entity(tags: ["elemental"]), children: [
                 Particle.dust(0.000, 0.969, 1.000,
                     size: 1,
-                    location: Location.rel(y: 1.5),
+                    location: Location.rel(y: 2),
                     delta: Location.glob(x: 0.15,y: 0.2,z: 0.15),
                     count: 10,
                     speed: 1
@@ -19,7 +19,7 @@ class MainFile extends Widget {
                     EffectType.slowness,
                     entity: Entity(distance: Range.to(1.5)).not(tags: ["cst_zombie"]),
                     duration: 5,
-                    amplifier: 1
+                    amplifier: 2
                 )
             ]),
 
