@@ -35,8 +35,9 @@ class CustomWidget extends Widget {
                     File("spawner",child: For.of(giveAllSpawner())),
                     File("spawnegg",child: For.of(giveAllSpawnEgg())),
                     File("summonall",child: For.of(summonAllZombie())),
+                    File("standspawner",child: StandSpawner()),
                     File("model",child: For.of(giveAllModel())),
-                    File("removetag",child: modelRemoveTag())
+                    File("removetag",child: RemoveModelTag()),
                 ],        
             ),
             Pack(
